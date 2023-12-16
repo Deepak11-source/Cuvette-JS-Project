@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+
+    <!-- Score Card -->
+    <div class="scoreContainer">
+        <!-- Headings -->
+        <div class="heading">
+            <p>ROCK</p>
+            <p>PAPER</p>
+            <p>SCISSORS</p>
+        </div>
+        <!-- Score Board -->
+        <div class="board">
+            <div class="score">
+                <p style="padding-top: 15px;">COMPUTER</p>
+                <p>SCORE</p>
+                <span id="computerScore">0</span>
+            </div>
+            <div class="score">
+                <p style="padding-top: 15px;">YOUR</p>
+                <p>SCORE</p>
+                <span id="userScore">0</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Controls -->
+    <div class="gameContainer">
+        <div class="game">
+            <p class="human">You Picked</p>
+            <p class="computer">PC Picked</p>
+        </div>
+        <div class="choices">
+            <img src="./assets/images/triangle.svg" alt="" class="triangle" />
+            <!-- Human -->
+            <div class="scissor option">
+                <div class="item">
+                    <img src="./assets/images/scissors.png" alt="" />
+                </div>
+            </div>
+            <div class="paper option">
+                <div class="item">
+                    <img src="./assets/images/paper.png" alt="" />
+                </div>
+            </div>
+            <div class="rock option">
+                <div class="item">
+                    <img src="./assets/images/rock.png" alt="" />
+                </div>
+            </div>
+            <!-- Machine -->
+            <div class="scissor machine">
+                <div class="item">
+                    <img src="./assets/images/scissors.png" alt="" />
+                </div>
+            </div>
+            <div class="paper machine">
+                <div class="item">
+                    <img src="./assets/images/paper.png" alt="" />
+                </div>
+            </div>
+            <div class="rock machine">
+                <div class="item">
+                    <img src="./assets/images/rock.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rule Board -->
+    <div class="ruleContainer">
+        <div class="closeIcon">X</div>
+        <img src="./assets/images/Ellipse.svg" alt="" class="closeBg" />
+        <div class="ruleBoard">
+            <div class="ruleHeading">Game Rules</div>
+            <div class="rulePoints">
+                <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+                <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper,
+                    scissors.”</li>
+                <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+                <li>If both players lay down the same hand, each player lays down another hand</li>
+            </div>
+        </div>
+    </div>
+
+    <!-- WIN/LOST -->
+    <div class="win-modal">
+        <h1 class="winner"></h1>
+        <p class="wmsg">AGAINST PC</p>
+        <div class="play">Play Again</div>      
+    </div>
+
+    <!-- Rules BTN -->
+    <div class="btn">
+        <button class="btn-rule">RULES</button>
+        <button class="btn-next">Next</button>
+    </div>
+
+    <!-- Success Winner Page -->
+    <div class="success">
+        <div class="winImg">
+            <img src="./assets/images/Star 5.svg" alt="won" class="star5"/>
+            <img src="./assets/images/Star 9.svg" alt="won" class="star3"/>
+            <img src="./assets/images/Star 1.svg" alt="won" class="star1"/>
+            <img src="./assets/images/Star 5.svg" alt="won" class="star4"/>
+            <img src="./assets/images/cup.png" alt="won" class="cup"/>
+            <img src="./assets/images/Star 5.svg" alt="won" class="star9"/>
+            <img src="./assets/images/Star 1.svg" alt="won" class="star6"/>
+            <img src="./assets/images/Star 5.svg" alt="won" class="star7"/>
+            <img src="./assets/images/Star 1.svg" alt="won" class="star2"/>
+        </div>
+        <div class="hurray">
+            HURRAY!!
+        </div>
+        <div class="wonMsg">
+            YOU WON THE GAME            
+        </div>
+        <div class="playAgain">
+            Play Again
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script src="./assets/index.js"></script>
+
+</body>
+
+</html>

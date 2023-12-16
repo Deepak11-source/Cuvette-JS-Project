@@ -1,0 +1,497 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Delius+Unicase&family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Dangrek&family=Delius+Unicase&family=Poppins:wght@300;400;500;600&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #8CC461;
+}
+
+.scoreContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    height: 158px;
+    flex-shrink: 0;
+    margin-top: 24px;
+    padding: 23px 35px;
+    color: white;
+    border-radius: 13px;
+    border: 2px solid #FFF;
+    background: rgba(28, 48, 120, 0.00);
+}
+
+.heading {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 4px;
+}
+
+.board {
+    display: flex;
+    flex-direction: row;
+    gap: 29px;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 139px;
+    height: 128px;
+    padding: 10px 36px;
+    border-radius: 9px;
+    background: #FFF;
+}
+
+.score p {
+    color: #656565;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.7px;
+
+}
+
+.score span {
+    color: #252525;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.gameContainer {
+    width: 100%;
+    min-height: 69vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 700px;
+    min-height: 10vh;
+    font-size: 1.2rem;
+    margin: 1rem 0 0 0;
+}
+
+.choices {
+    display: grid;
+    place-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 700px;
+    min-height: 7vh;
+    position: relative;
+    padding-top: 5%;
+}
+
+.option {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 18px;
+    cursor: pointer;
+}
+
+.machine {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding: 18px;
+    cursor: pointer;
+    display: none;
+}
+
+.scissor {
+    background: #BD00FF;
+    right: 8rem;
+    top: 3%;
+}
+
+.rock {
+    background: #0074B6;
+    left: 8rem;
+    top: 3%;
+}
+
+.paper {
+    background: #FFA943;
+    left: 16rem;
+    top: 59%;
+}
+
+.item {
+    background: #eee;
+    height: 100%;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+}
+
+.human,
+.computer {
+    opacity: 0;
+    color: white;
+}
+
+
+
+.btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 2rem 0.5rem 0;
+    margin: 0;
+    position: fixed;
+    top: 92%;
+}
+
+.btn-rule {
+    padding: 8px 30px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2.1px;
+}
+
+.btn-next {
+    padding: 8px 30px;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 10px;
+    border: 3px solid #FFF;
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2.1px;
+    margin-left: 1.2%;
+    display: none;
+    position: relative;
+    z-index: 1000;
+}
+
+
+.ruleContainer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    top: 0;
+    padding: 17rem 2rem 0.5rem 0;
+    display: none;
+    transition: all 0.4s ease;
+}
+
+.ruleContainer::before {
+    position: absolute;
+    content: "";
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+
+
+.ruleBoard {
+    align-items: flex-end;
+    width: 278px;
+    height: 325px;
+    border-radius: 13px;
+    border: 7px solid #FFF;
+    background: #004429;
+}
+
+.closeBg {
+    position: absolute;
+    transform: translateY(-260%) translateX(25%);
+    cursor: pointer;
+}
+
+.closeIcon {
+    position: absolute;
+    color: #FFF;
+    font-family: 'Dangrek', sans-serif;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transform: translateY(-195%) translateX(-10%);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.ruleHeading {
+    color: #FFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-top: 8px;
+    padding-left: 55px;
+}
+
+.rulePoints {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+li {
+    color: #FFF;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 16px;
+    text-align: justify;
+}
+
+li::before {
+    /* Unicode character for a square */
+    content: '\25A0';
+    color: #FFD600;
+    position: absolute;
+    transform: translateY(-10%) translateX(-155%);
+}
+
+.win-modal {
+    position: fixed;
+    display: grid;
+    place-content: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+}
+
+.win-modal::before {
+    position: fixed;
+    content: "";
+    opacity: 0.6;
+    width: 100%;
+    height: 100%;
+}
+
+.wmsg {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: 2.5px;
+}
+
+.winnner,
+.play {
+    z-index: 1;
+}
+
+.winner {
+    color: white;
+    padding-bottom: 1rem;
+}
+
+.play {
+    width: 174px;
+    height: 44px;
+    border-radius: 9px;
+    background: #FFF;
+    color: #6B6B6B;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.show {
+    left: 6rem;
+    top: 3%;
+    animation-name: ripple;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+
+
+.right {
+    left: 27.5rem;
+    top: 3%;
+    animation-name: ripple;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes ripple {
+    0% {
+        box-shadow: 0 0 0 0 #fff4, 0 0 0 0 #fff4;
+    }
+
+    80% {
+        box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
+    }
+
+    100% {
+        box-shadow: 0px 1px 62px 0px rgba(0, 0, 0, 0.13);
+
+    }
+}
+
+
+.success {
+    margin: auto;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 150px;
+    padding-right: 50px;
+}
+
+.cup {
+    padding-bottom: 0;
+    padding-right: 90px;
+    margin: 0;
+}
+
+.hurray {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 91px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 9.1px;
+    padding-top: 32px;
+}
+
+
+
+.wonMsg {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 41px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 4.1px;
+    padding-top: 25px;
+}
+
+.playAgain {
+    width: 174px;
+    height: 44px;
+    border-radius: 9px;
+    background: #FFF;
+    color: #6B6B6B;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.winImg {
+    position: relative;
+}
+
+.star1 {
+    transform: translateX(-100%);
+    position: absolute;
+}
+
+.star2 {
+    transform: translateY(80%) translateX(-100%);
+    position: absolute;
+}
+
+.star3 {
+    transform: translateY(-120%) translateX(-40%);
+    position: absolute;
+}
+
+.star5 {
+    transform: translateY(-450%) translateX(90%);
+    position: absolute;
+}
+
+.star6 {
+    transform: translateY(-140%) translateX(-140%);
+    position: absolute;
+}
+
+.star7 {
+    padding-left: 2%;
+    transform: translateY(30%) translateX(-110%);
+    position: absolute;
+}
+
+.star9 {
+    padding-left: 2%;
+    transform: translateY(-200%) translateX(-550%);
+    position: absolute;
+}
