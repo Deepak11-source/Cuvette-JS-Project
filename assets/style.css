@@ -359,37 +359,31 @@ li::before {
 .show {
     left: 6rem;
     top: 3%;
-    animation-name: ripple;
-    animation-duration: 1.5s;
-    animation-iteration-count: infinite;
 }
-
-
 
 .right {
     left: 27.5rem;
     top: 3%;
+}
+
+.showEffect {
     animation-name: ripple;
     animation-duration: 1.5s;
     animation-iteration-count: infinite;
 }
-
-
 @keyframes ripple {
     0% {
-        box-shadow: 0 0 0 0 #fff4, 0 0 0 0 #fff4;
+        box-shadow: 0 0 0 0 rgba(46, 154, 37, 0.39), 0 0 0 0 rgba(46, 154, 37, 0.39);
     }
 
     80% {
-        box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
+        box-shadow: 0 0 0 20px rgba(46, 154, 37, 0.39), 0 0 0 40px rgba(46, 154, 37, 0.39);
     }
 
     100% {
         box-shadow: 0px 1px 62px 0px rgba(0, 0, 0, 0.13);
-
     }
 }
-
 
 .success {
     margin: auto;

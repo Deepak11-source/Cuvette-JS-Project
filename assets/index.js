@@ -57,20 +57,11 @@ user.forEach((element, index) => {
         }, 500);
         setTimeout(() => {
             // Draw Condition
-            if (usrCount === 15 && computerCount === 15) {
+            if (usrCount === 15 && computerCount === 15 || random === index) {
                 winModal.style.display = "grid";
                 wmsg.style.display = "none";
                 winner.innerText = "TIE UP";
                 play.innerText = "REPLAY";
-            }
-            if(random === index){
-                winModal.style.display = "grid";
-                wmsg.style.display = "none";
-                winner.innerText = "Same";
-                play.style.display = "none";
-                setTimeout(() => {
-                    window.location.reload();
-                }, 700);
             } 
             // User Win Condition
             else if (index == 0 && random == 1 || index == 1 && random == 2 || index == 2 && random == 0) {          
@@ -78,14 +69,11 @@ user.forEach((element, index) => {
                 usrCount++;
                 userScore.innerText = usrCount;
                 localStorage.setItem("score", JSON.stringify(usrCount));
+                winModal.style.display = "grid";
+                winner.innerText = "You Win";                   
+                element.classList.add("showEffect");
                 if (usrCount === 15) {
-                    btnNext.style.display = "block"; 
-                    winModal.style.display = "grid";                    
-                    winner.innerText = "You Win";                                 
-                }else{
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1200);
+                    btnNext.style.display = "block";                                
                 }
             } 
             // Computer Win Condition
@@ -94,15 +82,9 @@ user.forEach((element, index) => {
                 computerCount++;
                 computerScore.innerText = computerCount;
                 localStorage.setItem("cscore", JSON.stringify(computerCount));
-                if (computerCount === 15) {
-                    winModal.style.display = "grid";
-                    winner.innerText = "You Lost";
-                    showWinModal();
-                }else{
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1200);
-                }
+                winModal.style.display = "grid";
+                winner.innerText = "You Lost";
+                machine[random].classList.add("showEffect");
             }       
         }, 1500);
     });
